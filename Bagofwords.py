@@ -8,7 +8,6 @@ def lowerspilt(l):
 			empty=empty+l[i]
 		else:
 			empty=empty+' '
-	print(empty)
 	return empty
 
 def dict(l):
@@ -49,17 +48,25 @@ def getOutput(file1,file2):
 	y=(dict(b))
 	z=(dotproduct(x,y))
 	p=(sumofsquaresfrequency(x,y))
-	print("The % of similarty between " + list[i] + " and "+ list[j] +" is " + str(similarity(z,p)))	
+#	print("The % of similarty between " + list[i] + " and "+ list[j] +" is " + str(
+	l=similarity(z,p)
+	return (l)	
 
-path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/Testcases"
+path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/file2"
 list = os.listdir(path)
-os.chdir(path) 
-
+os.chdir(path)
+u=[" "] 
 for i in range(len(list)):
-	for j in range (i+1,len(list)):
+	u.append(list[i])
+print(u)
+for i in range(len(list)):
+	v=[]
+	for j in range (0,len(list)):
 		if i==j:
-			pass
+			v.append("Nil")
 		else:
 			file1=open(list[i],'r').read().lower()
 			file2=open(list[j],'r').read().lower()
-			getOutput(file1,file2)
+			k=getOutput(file1,file2)
+			v.append(k)
+	print(list[i],v)
