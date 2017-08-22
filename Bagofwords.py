@@ -4,12 +4,11 @@ import math
 def lowerspilt(l):
 	empty=''
 	for i in range(len(l)):
-		if ord(l[i])>=97 and ord(l[i])<=122:
-			empty=empty+l[i]
-		elif ord(l[i])==32:
+		if 48<=ord(l[i])<=57 or 97<=ord(l[i])<=122 or ord(l[i])==95 :
 			empty=empty+l[i]
 		else:
-			i+=1
+			empty=empty+' '
+	print(empty)
 	return empty
 
 def dict(l):
@@ -52,7 +51,7 @@ def getOutput(file1,file2):
 	p=(sumofsquaresfrequency(x,y))
 	print("The % of similarty between " + list[i] + " and "+ list[j] +" is " + str(similarity(z,p)))	
 
-path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/file2"
+path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/Testcases"
 list = os.listdir(path)
 os.chdir(path) 
 
