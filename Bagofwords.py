@@ -42,12 +42,3 @@ y=(dict(file2))
 z=(dotproduct(x,y))
 p=(sumofsquaresfrequency(x,y))
 print("The % of similarty is",similarity(z,p))
-
-
-
-
-
-
-
-
-
