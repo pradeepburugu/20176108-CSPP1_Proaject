@@ -1,16 +1,16 @@
+import os.path
 import math
-file1=open('sir.py','r').read().lower()
-file2=open('tuple.py','r').read().lower()
 
 def lowerspilt(l):
 	empty=''
-	for i in l:
-		if ord(i)>=97 and ord(i)<=122:
-			empty=empty+i
+	for i in range(len(l)):
+		if ord(l[i])>=97 and ord(l[i])<=122:
+			empty=empty+l[i]
+		elif ord(l[i])==32:
+			empty=empty+l[i]
 		else:
-			empty=empty+' '
-	return (empty)
-				
+			i+=1
+	return empty
 
 def dict(l):
 	mydict={}
@@ -28,8 +28,8 @@ def dotproduct(x,y):
 			if i==j:
 				mul=x[i]*y[j]
 				sum=sum+mul
-	return (sum)
 
+	return (sum)
 def sumofsquaresfrequency(x,y):
 	sum1=0
 	sum2=0
@@ -40,16 +40,27 @@ def sumofsquaresfrequency(x,y):
 	m=math.sqrt(sum1)
 	n=math.sqrt(sum2)
 	return(m*n)
-	
 def similarity(sum,l):
 	cos=(sum/l)*100
 	return(cos)
+def getOutput(file1,file2):
+	a=lowerspilt(file1).split()
+	b=lowerspilt(file2).split()
+	x=(dict(a))
+	y=(dict(b))
+	z=(dotproduct(x,y))
+	p=(sumofsquaresfrequency(x,y))
+	print("The % of similarty between " + list[i] + " and "+ list[j] +" is " + str(similarity(z,p)))	
 
-a=lowerspilt(file1).split()
-b=lowerspilt(file2).split()
+path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/file2"
+list = os.listdir(path)
+os.chdir(path) 
 
-x=(dict(a))
-y=(dict(b))
-z=(dotproduct(x,y))
-p=(sumofsquaresfrequency(x,y))
-print("The % of similarty is",similarity(z,p))
+for i in range(len(list)):
+	for j in range (i+1,len(list)):
+		if i==j:
+			pass
+		else:
+			file1=open(list[i],'r').read().lower()
+			file2=open(list[j],'r').read().lower()
+			getOutput(file1,file2)
