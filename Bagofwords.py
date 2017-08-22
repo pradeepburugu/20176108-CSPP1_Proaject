@@ -1,6 +1,16 @@
 import math
-file1=open('sir.py','r').read().lower().replace(',',' ').replace('.',' ').split()
-file2=open('tuple.py','r').read().lower().replace(',',' ').replace('.',' ').split()
+file1=open('sir.py','r').read().lower()
+file2=open('tuple.py','r').read().lower()
+
+def lowerspilt(l):
+	empty=''
+	for i in l:
+		if ord(i)>=97 and ord(i)<=122:
+			empty=empty+i
+		else:
+			empty=empty+' '
+	return (empty)
+				
 
 def dict(l):
 	mydict={}
@@ -20,8 +30,6 @@ def dotproduct(x,y):
 				sum=sum+mul
 	return (sum)
 
-
-
 def sumofsquaresfrequency(x,y):
 	sum1=0
 	sum2=0
@@ -37,8 +45,11 @@ def similarity(sum,l):
 	cos=(sum/l)*100
 	return(cos)
 
-x=(dict(file1))
-y=(dict(file2))
+a=lowerspilt(file1).split()
+b=lowerspilt(file2).split()
+
+x=(dict(a))
+y=(dict(b))
 z=(dotproduct(x,y))
 p=(sumofsquaresfrequency(x,y))
 print("The % of similarty is",similarity(z,p))
