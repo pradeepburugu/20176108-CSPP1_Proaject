@@ -52,10 +52,10 @@ def getOutput(file1,file2):
 	l=similarity(z,p)
 	return (l)	
 
-path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/file2"
+path ="C:/Users/welcome/Desktop/20176108 CSPP1_Proaject/file1"
 list = os.listdir(path)
 os.chdir(path)
-u=[" "] 
+u=["  "] 
 for i in range(len(list)):
 	u.append(list[i])
 print(u)
